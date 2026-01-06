@@ -19,6 +19,7 @@ export default class MainScene extends Phaser.Scene {
 
     constructor() {
         super('MainScene');
+        console.log('Game Version: 1.1 - Fixed Assets');
     }
 
     preload() {
