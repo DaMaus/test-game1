@@ -10,7 +10,6 @@ export default class MainScene extends Phaser.Scene {
     private difficultyManager!: DifficultyManager;
     private nextSpawnTime: number = 0;
     private gameActive: boolean = false;
-    private scoreTimer?: Phaser.Time.TimerEvent;
 
     constructor() {
         super('MainScene');
@@ -68,13 +67,13 @@ export default class MainScene extends Phaser.Scene {
 
     createTextures() {
         if (!this.textures.exists('player')) {
-            const g = this.make.graphics({ x: 0, y: 0, add: false });
+            const g = this.make.graphics({ x: 0, y: 0 });
             g.fillStyle(0x00ccff);
             g.fillRect(0, 0, 32, 32);
             g.generateTexture('player', 32, 32);
         }
         if (!this.textures.exists('spear')) {
-            const g = this.make.graphics({ x: 0, y: 0, add: false });
+            const g = this.make.graphics({ x: 0, y: 0 });
             g.fillStyle(0xffffff);
             // Pointy shape? specific orientation?
             // Spear will point to right by default (0 rads)
@@ -88,7 +87,7 @@ export default class MainScene extends Phaser.Scene {
         }
     }
 
-    update(time: number, delta: number) {
+    update(time: number, _delta: number) {
         if (!this.gameActive) return;
 
         this.player.update();
@@ -143,16 +142,11 @@ export default class MainScene extends Phaser.Scene {
         this.nextSpawnTime = time + params.spawnInterval;
     }
 
-    handlePlayerHit(player: any, spear: any) {
+    handlePlayerHit(_player: any, _spear: any) {
         if (!this.gameActive) return;
 
         // Only hit if spear is firing? Or touch is deadly always?
-        // "Si una lanza toca al jugador -> Game Over".
-        // Usually telegraphs are ghost/safe.
-        // Let's implement check inside Spear or here.
-        // I need to check Spear state. But Spear is generic GameObject here.
-        // Accessing state:
-        const spearObj = spear as Spear;
+        // match collision logic
 
         // If we assume telegraph is safe (it's "appearing"):
         // Prompt says "Aparece... Gira... Apunta... Se lanza... Si toca -> Game Over".

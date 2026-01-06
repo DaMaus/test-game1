@@ -5,7 +5,7 @@ import { ReloadOutlined } from '@ant-design/icons';
 import { restartPhaserScene } from '../game/PhaserGame';
 
 const HUD: React.FC = () => {
-    const { score, highScore, isPlaying, startGame } = useGameStore();
+    const { score, highScore, startGame } = useGameStore();
 
     const handleRestart = () => {
         restartPhaserScene(); // We need to implement this
