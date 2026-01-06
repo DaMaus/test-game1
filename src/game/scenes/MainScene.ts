@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 import Player from '../objects/Player';
 import Spear from '../objects/Spear';
 import { DifficultyManager } from '../manager/DifficultyManager';
-import { DifficultyManager } from '../manager/DifficultyManager';
 import { useGameStore } from '../../store/useGameStore';
 
 // Assets
