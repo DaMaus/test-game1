@@ -2,7 +2,14 @@ import Phaser from 'phaser';
 import Player from '../objects/Player';
 import Spear from '../objects/Spear';
 import { DifficultyManager } from '../manager/DifficultyManager';
+import { DifficultyManager } from '../manager/DifficultyManager';
 import { useGameStore } from '../../store/useGameStore';
+
+// Assets
+import vikingoImg from '../../assets/vikingo.png';
+import asustadoImg from '../../assets/asustado.png';
+import fantasmaImg from '../../assets/fantasma.png';
+import miauAudio from '../../assets/miau-triste.mp3';
 
 export default class MainScene extends Phaser.Scene {
     private player!: Player;
@@ -16,10 +23,10 @@ export default class MainScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('vikingo', 'src/assets/vikingo.png');
-        this.load.image('asustado', 'src/assets/asustado.png');
-        this.load.image('fantasma', 'src/assets/fantasma.png');
-        this.load.audio('miau-triste', 'src/assets/miau-triste.mp3');
+        this.load.image('vikingo', vikingoImg);
+        this.load.image('asustado', asustadoImg);
+        this.load.image('fantasma', fantasmaImg);
+        this.load.audio('miau-triste', miauAudio);
     }
 
     create() {
